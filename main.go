@@ -1,4 +1,4 @@
-package playground
+package colorable
 
 import (
 	"fmt"
