@@ -1,0 +1,19 @@
+name: operator
+on: pull_request
+
+jobs:
+  pr-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout source
+        uses: actions/checkout@v1
+
+      - name: build-image
+        run: docker build . -f DockerfileBUILD -t buildme:1
+
+      - name: test-image
+        uses: plexsystems/container-structure-test-action@v0.1.0
+        with:
+            image: buildme:1
+            config: test.yaml
+
