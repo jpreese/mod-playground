@@ -1,20 +1,7 @@
-FROM ubuntu:18.04
+FROM alpine:3.11.2
 
-RUN apt-get update \
-    && apt-get install -y \
-    apt-transport-https \
-    lsb-release \
-    jq \
-    software-properties-common \
-    dirmngr \
-    bash \
-    unzip \
-    wget \
-    git \
-    sudo \
-    curl
+RUN apk add curl
 
-ARG OPA_VERSION=0.16.1
-RUN curl -LO https://github.com/open-policy-agent/opa/releases/download/v${OPA_VERSION}/opa_linux_amd64 \
-    && mv opa_linux_amd64 /usr/local/bin/opa \
-    && chmod +x /usr/local/bin/opa
+RUN curl -LO https://storage.googleapis.com/container-structure-test/v1.8.0/container-structure-test-linux-amd64 \
+    && chmod +x container-structure-test-linux-amd64 \
+    && mv container-structure-test-linux-amd64 /usr/local/bin/container-structure-test

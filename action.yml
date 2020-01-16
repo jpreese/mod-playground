@@ -1,0 +1,12 @@
+name: 'dostuff'
+description: 'did that stuff'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - container-structure-test
+    - test
+    - --image
+    - buildme:1
+    - --config
+    - test.yaml
