@@ -12,5 +12,8 @@ jobs:
         run: docker build . -f DockerfileBUILD -t buildme:1
 
       - name: test-image
-        uses: ./
+        uses: plexsystems/container-structure-test-action@v0.1.0
+        with:
+            image: buildme:1
+            config: test.yaml
 
