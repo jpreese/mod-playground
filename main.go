@@ -2,7 +2,6 @@ package colorable
 
 import (
 	"fmt"
-	"github.com/mattn/go-isatty"
 )
 
 func main() {
